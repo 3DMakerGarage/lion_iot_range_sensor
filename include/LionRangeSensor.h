@@ -44,11 +44,11 @@ class LionRangeSensor : private OnDeferredExecutionCallback {
         typedef void(*OnSensorDataEvent)(SensorData);
 
         void setOnSensorDataEventCallback(OnSensorDataEvent callback);
-        void begin();
+        void begin(unsigned long samplingTime = RANGE_SENSOR_SAMPLING_TIME);
         void loop();
 
     private:
-        Deferred deferredLoop = Deferred(RANGE_SENSOR_SAMPLING_TIME);
+        Deferred deferredLoop;
         OnSensorDataEvent onSensorDataEventCallback;        
 
         virtual void onDeferredExecution();

@@ -25,8 +25,9 @@
 
 #include <LionRangeSensor.h>
 
-void LionRangeSensor::begin() {
+void LionRangeSensor::begin(unsigned long samplingTime) {
     Wire.begin();
+    deferredLoop = Deferred(samplingTime);
 }
 
 void LionRangeSensor::setOnSensorDataEventCallback(OnSensorDataEvent callback) {

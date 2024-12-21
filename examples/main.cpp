@@ -28,12 +28,14 @@
 #include <LionRangeSensor.h>
 
 #define TEXT_SIZE 2
+#define SENSOR_SAMPLING_TIME 100    // Sensor will read data every 100ms.
+#define DISPLAY_SAMPLING_TIME 100   // Diplay will refresh data every 100ms
 
 Lion lion = Lion();
 LionRangeSensor sensor = LionRangeSensor();
 
 LionRangeSensor::SensorData  lastestSersorData;
-Deferred displayDrawDeferred = Deferred(100); // 0.1 seconds refresh time
+Deferred displayDrawDeferred = Deferred(DISPLAY_SAMPLING_TIME);
 
 void onSensorData(LionRangeSensor::SensorData data) {
     lastestSersorData = data;
@@ -52,7 +54,7 @@ void onDisplayDeferredExecution() {
 void setup() {
     lion.begin();
     sensor.setOnSensorDataEventCallback(onSensorData);
-    sensor.begin();
+    sensor.begin(SENSOR_SAMPLING_TIME);
 }
 
 void loop() {
