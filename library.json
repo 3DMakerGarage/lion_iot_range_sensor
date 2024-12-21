@@ -1,0 +1,24 @@
+{
+    "name": "Lion IoT Range Sensor",
+    "version": "2.0.0",
+    "description": "Lion IoT Range Sensor library. This library provides easy to use tools to work with range sensors.",
+    "keywords": "lion, iot",
+    "repository": {
+      "type": "git",
+      "url": "https://github.com/3DMakerGarage/lion_iot_range_sensor.git"
+    },
+    "authors": [
+      {
+        "name": "3D Maker Garage",
+        "email": "3dmakergarage@gmail.com",
+        "url": "https://lion-iot.com",
+        "maintainer": true
+      }
+    ],
+    "license": "Apache-2.0",
+    "frameworks": "arduino",
+    "platforms": ["espressif8266"],
+    "dependencies": {
+      "3dmakergarage/Lion IoT Core": "^2.0.0"
+    }
+  }
